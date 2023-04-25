@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { ContactItemList } from 'components/ContactItemList/ContactItemList';
 
 export const ContactList = () => {
-  const contscts = useSelector(state => state.contacts);
+  const contscts = useSelector(state => state.contacts.items);
   const filter = useSelector(state => state.filter);
 
   const filterContacs = () => {
@@ -17,8 +17,8 @@ export const ContactList = () => {
 
   return (
     <List>
-      {contactsName.map(({ name, id, number }) => {
-        return <ContactItemList key={id} name={name} id={id} number={number} />;
+      {contactsName.map(({ name, id, phone }) => {
+        return <ContactItemList key={id} name={name} id={id} phone={phone} />;
       })}
     </List>
   );
